@@ -33,7 +33,6 @@ body {
 
 .page-layout {
     width: 100%;
-    min-width: 1024px;
     margin: 0 auto;
 }
 
@@ -95,6 +94,7 @@ a.icon:active {
 .footer a.icon:active {
     color: #97cbd473;
 }
+
 @media screen and (min-width: 1280px) {
     .page-layout {
         width: 80%;
@@ -111,7 +111,6 @@ a.icon:active {
     height: 100vh;
     background-color: #fff;
 }
-
 
 .left-column .header {
     height: 6%;
@@ -163,13 +162,13 @@ a.icon:active {
 * Styles for order-history.
 */
 
-.order-history {
+#order-history {
     width: 100%;
     height: 91%;
     overflow-y: scroll;
 }
 
-.order-history .inner-container {
+#order-history .inner-container {
     position: relative;
 }
 
@@ -198,7 +197,7 @@ a.icon:active {
     right: 5%;
 }
 
-.order .delivery-details .delivery-date {
+.order .delivery-details .delivery-created {
     margin-bottom: 5%;
     font-size: 1.5rem;
     color: #4a4a44;
@@ -259,13 +258,12 @@ a.icon:active {
     background-color: #eff4f8;
 }
 
-
 .order-desc .order-desc-details {
     position: relative;
     margin-bottom: 5%;
 }
 
-.order-desc .order-desc-number {
+#order-desc-number {
     margin-bottom: 1em;
     font-size: 1.5rem;
     font-weight: normal;
@@ -314,63 +312,67 @@ a.icon:active {
     color: #427cac;
 }
 
-.order-desc-actions a.icon-action.icon-truck:before {
+.order-desc-actions a.icon-action#icon-truck:before {
     content: '\f0d1';
 }
 
-.order-desc-actions a.icon-action.icon-user:before {
+.order-desc-actions a.icon-action#icon-person:before {
     content: '\f007';
 }
 
-.order-desc .order-desc-value {
+.order-desc .order-desc-price {
     position: absolute;
     top: 0;
     right: 0;
     text-align: right;
 }
 
-.order-desc .order-desc-value .value {
+.order-desc .order-desc-price .price {
     display: block;
     font-size: 1.25rem;
 }
 
-.order-desc .order-desc-value .currency {
+.order-desc .order-desc-price .currency {
     font-size: 0.75rem;
     text-transform: uppercase;
 }
 
-
 /**
-* Styles for section order-shipping-address.
+* Styles for section order-shipping-info.
 */
 
-.order-shipping-address {
+.order-shipping-info, .order-customer-info {
+    display: none;
     width: 100%;
     height: 24%;
     border-bottom: 2px solid #cfdfec;
     background-color: #fff;
 }
 
-.order-shipping-address .section-title {
+.order-shipping-info .section-title, .order-customer-info .section-title {
     border-bottom: 1px solid #615c5c59;
 }
 
-.order-shipping-address .table-wrapper {
+.order-shipping-info .table-wrapper, .order-customer-info .table-wrapper {
     padding: 2% 0;
 }
 
-.table-order-address {
+.shipping-info, .customer-info {
     border-collapse: collapse;
 }
 
-.table-order-address .col-1 {
+.shipping-info .col-1, .customer-info .col-1 {
     padding-left: 5em;
     text-align: right;
 }
 
-.table-order-address .col-2 {
+.shipping-info .col-2, .customer-info .col-2 {
     padding-left: 1em;
     color: #4a4a44;
+}
+
+.order-shipping-info.active, .order-customer-info.active {
+    display: block;
 }
 
 /**
@@ -380,21 +382,22 @@ a.icon:active {
 .order-content {
     width: 100%;
     height: 40%;
+    overflow-y: scroll;
     background-color: #fafafa;
 }
 
-.table-order-content {
+.products-table {
     width: 100%;
     border-top: 1px solid #615c5c59;
     border-bottom: 1px solid #615c5c59;
     border-collapse: collapse;
 }
 
-.table-order-content tr:not(:last-of-type) {
+.products-table .table-row:not(:last-of-type) {
     border-bottom: 2px solid #615c5c12;
 }
 
-.table-order-content th {
+.products-table .cell-title {
     padding: 0.3em 1em;
     border-bottom: 2px solid #615c5c2b;
     font-size: 1rem;
@@ -403,37 +406,38 @@ a.icon:active {
     background-color: #f7f7f7;
 }
 
-.table-order-content td {
+.products-table td {
     padding: 0.3em 1em;
 }
 
-.table-order-content .col-1 {
+.products-table .col-1 {
     text-align: left;
 }
 
-.table-order-content .col-2,
-.table-order-content .col-3 {
+.products-table .col-2,
+.products-table .col-3 {
     text-align: center;
 }
 
-.table-order-content .col-4 {
+.products-table .col-4 {
     text-align: right;
 }
 
-.table-order-content .prdct-name {
+.products-table .prdct-name {
     font-weight: bold;
     color: #000;
 }
 
-.table-order-content .prdct-code {
+.products-table .prdct-code {
     display: block;
 }
 
-.table-order-content .prdct-value {
+.products-table .prdct-price,
+.products-table .prdct-total-price {
     font-weight: bold;
 }
 
-.table-order-content .prdct-currency {
+.products-table .prdct-currency {
     font-size: 0.875rem;
     text-transform: uppercase;
 }
